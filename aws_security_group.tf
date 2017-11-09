@@ -1,6 +1,6 @@
 resource "aws_security_group" "kptboard_alb" {
   name = "${var.kptboard}-alb"
-  vpc_id = "${aws_default_vpc.default.id}"
+  vpc_id = "${aws_vpc.kptboard.id}"
   
   ingress = {
     from_port   = 80
@@ -19,7 +19,7 @@ resource "aws_security_group" "kptboard_alb" {
 
 resource "aws_security_group" "kptboard_ecs" {
   name = "${var.kptboard}-ecs"
-  vpc_id = "${aws_default_vpc.default.id}"
+  vpc_id = "${aws_vpc.kptboard.id}"
   
 
   ingress = {
@@ -49,7 +49,7 @@ resource "aws_security_group" "kptboard_ecs" {
 
 resource "aws_security_group" "kptboard_rds" {
   name = "${var.kptboard}-rds"
-  vpc_id = "${aws_default_vpc.default.id}"
+  vpc_id = "${aws_vpc.kptboard.id}"
 
   ingress = {
     from_port = 3306

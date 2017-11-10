@@ -21,8 +21,8 @@ resource "aws_security_group" "kptboard_alb" {
   }
 }
 
-resource "aws_security_group" "kptboard_ecs" {
-  name = "${var.kptboard}-ecs"
+resource "aws_security_group" "kptboard_ec2" {
+  name = "${var.kptboard}-ec2"
   vpc_id = "${aws_vpc.kptboard.id}"
   
 
@@ -51,7 +51,7 @@ resource "aws_security_group" "kptboard_ecs" {
   }
 
   tags {
-    Name = "${var.kptboard}-ecs"
+    Name = "${var.kptboard}-ec2"
   }
 }
 
@@ -65,7 +65,7 @@ resource "aws_security_group" "kptboard_rds" {
     protocol  = "tcp"
 
     security_groups = [
-      "${aws_security_group.kptboard_ecs.id}",
+      "${aws_security_group.kptboard_ec2.id}",
     ]
   }
 

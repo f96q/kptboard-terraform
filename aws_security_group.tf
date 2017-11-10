@@ -15,6 +15,10 @@ resource "aws_security_group" "kptboard_alb" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags {
+    Name = "${var.kptboard}-alb"
+  }
 }
 
 resource "aws_security_group" "kptboard_ecs" {
@@ -45,6 +49,10 @@ resource "aws_security_group" "kptboard_ecs" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags {
+    Name = "${var.kptboard}-ecs"
+  }
 }
 
 resource "aws_security_group" "kptboard_rds" {
@@ -66,5 +74,9 @@ resource "aws_security_group" "kptboard_rds" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "${var.kptboard}-rds"
   }
 }

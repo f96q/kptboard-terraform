@@ -1,7 +1,7 @@
 resource "aws_security_group" "kptboard_alb" {
   name = "${var.kptboard}-alb"
   vpc_id = "${aws_vpc.kptboard.id}"
-  
+
   ingress = {
     from_port   = 80
     to_port     = 80
@@ -24,7 +24,6 @@ resource "aws_security_group" "kptboard_alb" {
 resource "aws_security_group" "kptboard_ec2" {
   name = "${var.kptboard}-ec2"
   vpc_id = "${aws_vpc.kptboard.id}"
-  
 
   ingress = {
     from_port   = 22

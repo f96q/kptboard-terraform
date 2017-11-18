@@ -12,7 +12,7 @@
         "awslogs-stream-prefix": "${kptboard}-migration"
       }
     },
-    "command": ["bundle", "exec", "rake", "db:migrate"],    
+    "command": ["bundle", "exec", "rake", "db:migrate"],
     "environment": [
       {
         "name": "AWS_DEFAULT_REGION",

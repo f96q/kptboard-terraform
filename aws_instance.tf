@@ -1,8 +1,8 @@
 data "template_file" "aws_instance_kptboard_user_data" {
-  template = "${file("user_data/kptboard.sh.tpl")}"
+  template = "${file("user_data/ecs.sh.tpl")}"
 
   vars {
-    kptboard = "${var.kptboard}"
+    ecs_cluster = "${var.kptboard}"
   }
 }
 

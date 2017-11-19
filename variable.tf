@@ -27,7 +27,7 @@ variable "aws_instance_kptboard_key_name" {}
 variable "aws_db_instance_kptboard_password" {}
 
 variable "aws_ecr_repository_create" {
-  default = true
+  default = "true"
 }
 
 variable "kptboard_secret_key_base" {}
